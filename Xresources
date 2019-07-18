@@ -35,10 +35,10 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Cica:size=13:antialias=true
-!URxvt.font: xft:Ubuntu Mono derivative Powerline-13:antialias=true
-URxvt.letterSpace:          -1
-!URxvt.lineSpace:            0
+!URxvt.font:                 xft:Cica-13
+URxvt.font: xft:Ubuntu Mono derivative Powerline-13:antialias=true,xft:Cica
+!URxvt.letterSpace:          -1
+URxvt.lineSpace:            0
 
 !! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
 URxvt.depth:                32
