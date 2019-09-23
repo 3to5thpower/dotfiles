@@ -1,7 +1,7 @@
 XTerm*utf8 : 1
 XTerm*locale : true
 XTerm*selectToClipboard : true
-XTerm*faceName : 'Monospace'
+!XTerm*faceName : 'Monospace'
 XTerm*facesize : 13
 XTerm*cjkWidth : true
 XTerm*background : black
@@ -9,7 +9,7 @@ XTerm*foreground : white
 XTerm*saveLines : 2000
 XTerm*geometry : 100x30+300+100
 
-
+xterm faceName: Ubuntu Mono derivative Powerline:style=Book:antialias=true
 
 
 !URxvt*utf8 : 1
@@ -35,8 +35,10 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-!URxvt.font:                 xft:Cica-13
-URxvt.font: xft:Ubuntu Mono derivative Powerline-13:antialias=true,xft:Cica
+URxvt.font: xft:Ubuntu Mono derivative Powerline-13:antialias=true:hinting=true,\
+            xft:Cica:antialias=true:hinting=true,\
+            xft:PowerlineSymbols:antialias=true:hinting=true
+
 !URxvt.letterSpace:          -1
 URxvt.lineSpace:            0
 

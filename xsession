@@ -3,8 +3,9 @@ export QT_IM_MODE=fcitx
 export XMODIFIERS=@im=fcitx
 xrdb ~/.Xresources
 fcitx-autostart
-~/.fehbg
+feh --bg-scale ~/picture/hiryu.jpg 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+xinput disable AlpsPS/2\ ALPS\ GlidePoint
 urxvtd -o -f
 
 numlockx &
@@ -14,3 +15,4 @@ light-locker &
 volumeicon &
 
 exec i3
+./~/application/iron-linux-64/chrome

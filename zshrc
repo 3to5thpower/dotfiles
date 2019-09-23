@@ -81,8 +81,8 @@ bindkey "^[[3~" delete-char
 export LANG=ja_JP.UTF-8
 
 # パスを追加したい場合
-##export PATH="$HOME/bin:$PATH"
-
+export PATH="$HOME/nand2tetris/tools/:$PATH"
+export PATH="$HOME/application/iron-linux-64/:$PATH"
 
 #alias設定
 alias la='ls -a'
@@ -99,7 +99,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # opam configuration
 test -r /home/sagoj0_/.opam/opam-init/init.zsh && . /home/sagoj0_/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
