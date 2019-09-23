@@ -26,6 +26,7 @@ font pango:Cica 10
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+bindsym $mod+Shift+Return exec /home/sagoj0_/bin/iron
 
 #screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
@@ -40,8 +41,8 @@ bindsym XF86AudioLowerVolume exec amixer set Master 3%-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec run_urxvt -tr -sh 30
-# bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec --no-startup-id run_urxvt 
+bindsym $mod+Return exec urxvtc
 
 #screen shot
 bindsym --release Print exec --no-startup-id scrot ~/picture/scrots/%Y-%m-%d-%T-screenshots.png
@@ -55,7 +56,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -209,13 +210,11 @@ bar {
 for_window [class="^.*"] border pixel 0
 
 
-exec --no-startup-id light-locker --lock-on-suspend
-
 #透過設定
 #exec --no-startup-id compton -cbm 0.75
 
 #gap設定
-#gaps outer 10
+gaps outer 10
 gaps inner 10
 smart_gaps on
 

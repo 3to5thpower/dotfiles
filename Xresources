@@ -23,6 +23,11 @@ xterm faceName: Ubuntu Mono derivative Powerline:style=Book:antialias=true
 !URxvt*saveLines : 2000
 !URxvt*geometry : 100x30+300+100
 
+URxvt*inheritPixmap: true
+URxvt*.transparent: true
+! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*.shading: 60
+
 URxvt.geometry:             96x32
 URxvt.scrollBar_right:      true
 URxvt.scrollBar_floating:   true
@@ -35,12 +40,10 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font: xft:Ubuntu Mono derivative Powerline-13:antialias=true:hinting=true,\
-            xft:Cica:antialias=true:hinting=true,\
-            xft:PowerlineSymbols:antialias=true:hinting=true
+URxvt.font: xft:Cica:antialias=true:hinting=true
 
 !URxvt.letterSpace:          -1
-URxvt.lineSpace:            0
+URxvt.lineSpace:            1
 
 !! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
 URxvt.depth:                32
@@ -72,7 +75,7 @@ URxvt.scrollColor:          [90]#504945
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-URxvt.perl-ext-common: default,resize-font
-URxvt.resize-font.step: 2
-URxvt.keysym.C-Down: resize-font:smaller
-URxvt.keysym.C-Up: resize-font:bigger
+!!URxvt.perl-ext-common: default,resize-font
+!!URxvt.resize-font.step: 2
+!!URxvt.keysym.C-Down: resize-font:smaller
+!!URxvt.keysym.C-Up: resize-font:bigger
