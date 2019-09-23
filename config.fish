@@ -24,7 +24,7 @@ function fish_prompt
 end
 
 
-
+alias la='ls -a'
 
 
 
