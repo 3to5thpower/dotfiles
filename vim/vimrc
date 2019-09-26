@@ -66,22 +66,21 @@ if has('nvim')
 
   " Required:
   if dein#load_state('/home/sagoj0_/.cache/dein')
+    call dein#begin('/home/sagoj0_/.cache/dein')
 
     " Let dein manage dein
-    let s:dein_dir = expand('~/.config/nvim/dein')
     " Required:
-    call dein#add('/home/sagoj0_/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-
+    "call dein#add('/home/sagoj0_/.cache/dein/repos/github.com/Shougo/dein.vim')
+    
     let s:toml_file = '~/.config/nvim/dein.toml'
-    let s:toml_lazy_file ='~/.config/nvim/dein_lazy.toml'
+    let s:toml_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
 
-    call dein#begin(s:dein_dir)
-    call dein#load_toml(s:toml_file)
+    call dein#load_toml(s:toml_file, {'lazy': 0})
     call dein#load_toml(s:toml_lazy_file, {'lazy': 1})
     " Add or remove your plugins here like this:
-    call dein#add('Shougo/neosnippet.vim')
-    call dein#add('Shougo/neosnippet-snippets')
+    
+  "  call dein#add('Shougo/neosnippet.vim')
+  "  call dein#add('Shougo/neosnippet-snippets')
 
     " Required:
     call dein#end()
@@ -96,13 +95,14 @@ if has('nvim')
   if dein#check_install()
     call dein#install()
   endif
-  "End dein Scripts-------------------------
 
-  "colorscheme candid
-  "let g:lightline = { 'colorscheme': 'candid' }
-  set ttimeoutlen=50
-else
-  " Standard vim specific commands
-  syntax enable
+  "End dein Scripts-------------------------
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+
+colorscheme candid
+
+
 endif
   
