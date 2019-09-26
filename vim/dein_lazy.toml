@@ -71,3 +71,8 @@ hook_source = '''
           \ })
     call deoplete#custom#option('camel_case', v:true)
 '''
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+build = './install.sh'
+on_source = ['deoplete.nvim']
