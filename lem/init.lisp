@@ -23,14 +23,13 @@
 (define-key *global-keymap* "Return" 'lem.language-mode:newline-and-indent)
 ;(define-key *global-keymap* "C-x l" 'start-lisp-repl)
 
-(bindkey "C-h" backward-char)
-(bindkey "C-j" next-line)
-(bindkey "C-k" previous-line)
-(bindkey "C-l" forward-char)
-(bindkey "C-b" delete-previous-char)
-(bindkey "C-n" kill-line)
-(bindkey "C-u" undo)
 
+(bindkey "C-b" delete-previous-char)
+(bindkey "C-u" undo)
+(bindkey "C-r" redo)
 (load #P"~/dotfiles/lem/modes/10-vi.lisp")
 (load #P"~/dotfiles/lem/modes/10-paredit.lisp")
 (load #P"~/dotfiles/lem/modes/10-auto-save.lisp")
+
+(lem-vi-mode:vi-mode)
+(define-key lem-vi-mode:*insert-keymap* "j j" 'lem-vi-mode.commands:vi-end-insert)

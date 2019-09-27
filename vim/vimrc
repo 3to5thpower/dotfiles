@@ -48,7 +48,8 @@ set hidden
 set clipboard+=unnamedplus
 "set visualbell
 
-inoremap <silent> jj <ESC><Right>
+"inoremap <silent> jj <ESC><Right>
+inoremap <silent> jj <ESC>
 "inoremap <C-m> <CR>
 "inoremap <C-n> <C-u>
 "inoremap <c-b> <backspace>
