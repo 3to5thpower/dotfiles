@@ -41,3 +41,6 @@ hook_add = '''
   nnoremap <Leader>lr :call LanguageClient_textDocument_rename()<CR>
   nnoremap <Leader>lf :call LanguageClient_textDocument_formatting()<CR>
 '''
+
+[[plugins]]
+repo = 'kovisoft/slimv'

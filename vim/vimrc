@@ -5,6 +5,8 @@ set smartindent
 set autoindent
 set mouse=a
 
+let lisp_rainbow=1
+
 filetype plugin on
 filetype indent on
 
@@ -102,6 +104,8 @@ let g:lightline = {
       \ }
 
 colorscheme candid
+
+"slime設定
 
 
 endif

@@ -25,7 +25,7 @@ end
 
 
 alias la='ls -a'
-
+alias lem='~/.roswell/bin/lem'
 
 
 # Start X at login
