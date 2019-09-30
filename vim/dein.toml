@@ -25,8 +25,8 @@ hook_add = '''
   " 言語ごとに設定する
   if executable('clangd')
       let g:LanguageClient_serverCommands = {
-          \ 'cpp': ['clangd']
-          \ }
+          \ 'cpp': ['clangd'],
+          \ 'c': ['clangd']}
   endif
 
   augroup LanguageClient_config
