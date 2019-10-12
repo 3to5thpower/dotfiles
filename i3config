@@ -42,7 +42,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec --no-startup-id run_urxvt 
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec urxvtc -e fish
 
 #screen shot
 bindsym --release Print exec --no-startup-id scrot ~/picture/scrots/%Y-%m-%d-%T-screenshots.png
