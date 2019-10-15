@@ -40,7 +40,7 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font: xft:Cica:antialias=true:hinting=true
+URxvt.font: xft:Cica:antialias=true:hinting=true:size=12
 
 !URxvt.letterSpace:          -1
 URxvt.lineSpace:            1
@@ -76,6 +76,12 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 !!URxvt.perl-ext-common: default,resize-font
-!!URxvt.resize-font.step: 2
-!!URxvt.keysym.C-Down: resize-font:smaller
-!!URxvt.keysym.C-Up: resize-font:bigger
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed,resize-font
+URxvt.url-select.launcher:  chromium
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.resize-font.step: 2
+URxvt.keysym.C-Down: resize-font:smaller
+URxvt.keysym.C-Up: resize-font:bigger
