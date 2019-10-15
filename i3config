@@ -49,14 +49,15 @@ bindsym --release Print exec --no-startup-id scrot ~/picture/scrots/%Y-%m-%d-%T-
 bindsym Shift+Print --release exec --no-startup-id scrot -s ~/picture/scrots/%Y-%m-%d-%T-screenshot.png
 
 #suspend & lock
-bindsym $mod+Ctrl+l exec light-locker-command -l
+#bindsym $mod+Ctrl+l exec light-locker-command -l
 
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun \
+  -font "Cica 14"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -193,7 +194,7 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3status --config ~/.config/i3status/config
        # status_command python /usr/lib/python3.7/site-packages/powerline/bindings/i3/powerline-i3.py
-       font pango:PowerlineFont 10
+       font pango:Cica 10
        #mode invisible
   colors {
     separator #7d7d7d
