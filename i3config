@@ -26,7 +26,7 @@ font pango:Cica 10
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-bindsym $mod+Shift+Return exec /home/sagoj0_/bin/iron
+bindsym $mod+Shift+Return exec /bin/chromium
 
 #screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
@@ -42,7 +42,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec --no-startup-id run_urxvt 
-bindsym $mod+Return exec urxvtc -e fish
+bindsym $mod+Return exec urxvtc 
 
 #screen shot
 bindsym --release Print exec --no-startup-id scrot ~/picture/scrots/%Y-%m-%d-%T-screenshots.png
