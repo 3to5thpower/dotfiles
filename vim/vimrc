@@ -4,6 +4,7 @@ set listchars=tab:>-,trail:*
 set smartindent
 set autoindent
 set mouse=a
+set nobackup
 
 let lisp_rainbow=1
 
