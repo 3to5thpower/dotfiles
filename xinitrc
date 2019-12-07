@@ -18,7 +18,7 @@ fcitx &
 numlockx &
 clipit &
 nm-applet &
-light-locker &
 volumeicon &
 
-exec i3
+#exec i3
+exec cinnamon-session

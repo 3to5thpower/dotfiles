@@ -76,7 +76,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 !!URxvt.perl-ext-common: default,resize-font
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed,resize-font
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
 urxvt.perl-ext: xim-onthespot
 urxvt.inputMethod: fcitx
 urxvt.preeditType: OnTheSpot

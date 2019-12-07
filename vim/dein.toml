@@ -9,8 +9,17 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
 repo = 'flrnprz/candid.vim'
 
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_add = '''
+  let g:rustfmt_autosave = 1
+'''
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
@@ -20,14 +29,12 @@ on_ft='snippet'
 hook_add = '''
   set hidden
 
-  let g:LanguageClient_serverCommands = {}
-
   " 言語ごとに設定する
-  if executable('clangd')
-      let g:LanguageClient_serverCommands = {
-          \ 'cpp': ['clangd'],
-          \ 'c': ['clangd']}
-  endif
+  let g:LanguageClient_serverCommands = {
+      \ 'cpp': ['clangd'],
+      \ 'c': ['clangd'],
+      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ }
 
   augroup LanguageClient_config
       autocmd!
@@ -42,5 +49,3 @@ hook_add = '''
   nnoremap <Leader>lf :call LanguageClient_textDocument_formatting()<CR>
 '''
 
-[[plugins]]
-repo = 'kovisoft/slimv'

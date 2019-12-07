@@ -33,3 +33,7 @@
 
 (lem-vi-mode:vi-mode)
 (define-key lem-vi-mode:*insert-keymap* "j j" 'lem-vi-mode.commands:vi-end-insert)
+
+(defun foo (x)
+  (mapcar #'(lambda (x) (bar x))
+          (loop for i below 10 collect i)))

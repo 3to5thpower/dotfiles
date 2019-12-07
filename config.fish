@@ -24,8 +24,10 @@ function fish_prompt
 end
 
 
-alias la='ls -a'
 alias lem='~/.roswell/bin/lem'
+alias ls='exa -F'
+alias la='ls -a'
+alias ll='la -bghHliS --git'
 
 
 # Start X at login

@@ -3,11 +3,14 @@
 #
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+#[[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+#alias ls='ls --color=auto'
+alias ls='exa -F'
+alias la='exa -Fa'
+alias ll='exa -Fla'
+
 PS1='[\u@\h \W]\$ '
-alias la='ls -a'
 
 export PATH=$PATH:~/bin/
 

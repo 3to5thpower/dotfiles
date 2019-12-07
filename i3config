@@ -45,8 +45,8 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvtc 
 
 #screen shot
-bindsym --release Print exec --no-startup-id scrot ~/picture/scrots/%Y-%m-%d-%T-screenshots.png
-bindsym Shift+Print --release exec --no-startup-id scrot -s ~/picture/scrots/%Y-%m-%d-%T-screenshot.png
+bindsym Print --release exec --no-startup-id maim  ~/picture/screenshots/screenshot-$(date "+%Y%m%d-%H%M%S").png
+bindsym Shift+Print --release exec --no-startup-id maim -s ~/picture/screenshots/screenshot-$(date "+%Y%m%d-%H%M%S").png
 
 #suspend & lock
 #bindsym $mod+Ctrl+l exec light-locker-command -l
