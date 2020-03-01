@@ -1,10 +1,22 @@
 set number
+set ruler
+set wildmenu
 set list
 set listchars=tab:>-,trail:*
 set smartindent
 set autoindent
 set mouse=a
 set nobackup
+set clipboard=unnamedplus
+set noswapfile
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+set fenc=utf-8
+set encoding=utf-8
+set hidden
 
 let lisp_rainbow=1
 
@@ -13,7 +25,6 @@ filetype indent on
 
 set noerrorbells
 
-"set termguicolors
 "Colorscheme読み込み時の背景の透過設定
 augroup TransparentBG
   autocmd!
@@ -24,11 +35,13 @@ augroup TransparentBG
   autocmd Colorscheme * highlight EndOfBuffer ctermbg=none "ファイル終わり以降の空白
 augroup END
 
-"noremap <Up> <Nop>
-"noremap <Down> <Nop>
-"noremap <Right> <Nop>
-"noremap <Left> <Nop>
-
+"最後のカーソル位置の復元
+if has("autocmd")
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+endif
 
 " 関数を定義
 function Indent()
@@ -38,23 +51,9 @@ function Indent()
 endfunction
 command -nargs=0 Indent call Indent()
 
-set expandtab
-set tabstop=2
-set shiftwidth=2
-
-set fenc=utf-8
-set encoding=utf-8
-set noswapfile
-set hidden
-set clipboard+=unnamedplus
 "set visualbell
 
-"inoremap <silent> jj <ESC><Right>
 inoremap <silent> jj <ESC>
-"inoremap <C-m> <CR>
-"inoremap <C-n> <C-u>
-"inoremap <c-b> <backspace>
-
 
 
 if has('nvim')
@@ -101,14 +100,10 @@ if has('nvim')
   endif
 
   "End dein Scripts-------------------------
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
-
-colorscheme candid
-
-"slime設定
-
+  "set termguicolors
+  set background=dark
+  syntax on
+  let g:lightline = {'colorscheme': 'candid' }
+  colorscheme candid
 
 endif
-  

@@ -1,49 +1,25 @@
-XTerm*utf8 : 1
-XTerm*locale : true
-XTerm*selectToClipboard : true
-!XTerm*faceName : 'Monospace'
-XTerm*facesize : 13
-XTerm*cjkWidth : true
-XTerm*background : black
-XTerm*foreground : white
-XTerm*saveLines : 2000
-XTerm*geometry : 100x30+300+100
+! ~/.Xresources
 
-xterm faceName: Ubuntu Mono derivative Powerline:style=Book:antialias=true
-
-
-!URxvt*utf8 : 1
-!URxvt*locale : true
-!URxvt*selectToClipboard : true
-!URxvt*faceName : 'Monospace'
-!URxvt*facesize : 13
-!URxvt*cjkWidth : true
-!URxvt*background : black
-!URxvt*foreground : white
-!URxvt*saveLines : 2000
-!URxvt*geometry : 100x30+300+100
-
-URxvt*inheritPixmap: true
-URxvt*.transparent: true
-! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*.shading: 40
+!!
+!! rxvt-unicode (urxvt)
+!!
 
 URxvt.geometry:             96x32
 URxvt.scrollBar_right:      true
 URxvt.scrollBar_floating:   true
 URxvt.scrollstyle:          plain
-URxvt.cursorBlink:          false
-URxvt.cursorUnderline:      false
+URxvt.cursorBlink:          true
+URxvt.cursorUnderline:      true
 URxvt.pointerBlank:         true
-URxvt.visualBell:           false
+URxvt.visualBell:           true
 URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font: xft:Cica:antialias=true:hinting=true:size=12
-
-!URxvt.letterSpace:          -1
-URxvt.lineSpace:            1
+URxvt.font:                 xft:Dejavu Sans Mono-10,\
+                            xft:IPAGothic
+URxvt.letterSpace:          -1
+!URxvt.lineSpace:            0
 
 !! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
 URxvt.depth:                32
@@ -70,21 +46,3 @@ URxvt.colorBD:              [90]#d5c4a1
 URxvt.colorUL:              [90]#83a598
 URxvt.scrollColor:          [90]#504945
 !URxvt.troughColor:          [90]#3C3836
-
-
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-!!URxvt.perl-ext-common: default,resize-font
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
-urxvt.perl-ext: xim-onthespot
-urxvt.inputMethod: fcitx
-urxvt.preeditType: OnTheSpot
-URxvt.url-select.launcher:  chromium
-URxvt.url-select.underline: true
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-URxvt.keysym.M-s:           perl:keyboard-select:search
-URxvt.resize-font.step: 2
-URxvt.keysym.C-Down: resize-font:smaller
-URxvt.keysym.C-Up: resize-font:bigger

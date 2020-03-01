@@ -1,105 +1,138 @@
-# Created by newuser for 5.7.1
-autoload -U compinit promptinit colors
-compinit
-promptinit
-colors
 
-#ã‚³ãƒãƒ³ãƒ‰è£œå®Œ
+setopt share_history
+
+# ¿§¤ò»ÈÍÑ
+autoload -Uz colors ; colors
+
+# ¥¨¥Ç¥£¥¿¤òvim¤ËÀßÄê
+export EDITOR=vim
+
+# cd¤·¤¿ºİ¤Î¥Ç¥£¥ì¥¯¥È¥ê¤ò¥Ç¥£¥ì¥¯¥È¥ê¥¹¥¿¥Ã¥¯¤Ø¼«Æ°ÄÉ²Ã
+setopt auto_pushd
+
+# ¥Ç¥£¥ì¥¯¥È¥ê¥¹¥¿¥Ã¥¯¤Ø¤ÎÄÉ²Ã¤Îºİ¤Ë½ÅÊ£¤µ¤»¤Ê¤¤
+setopt pushd_ignore_dups
+
+# ¥ï¥¤¥ë¥É¥«¡¼¥ÉÅ¸³«¤ò»ÈÍÑ¤¹¤ë
+setopt extended_glob
+
+# cd¥³¥Ş¥ó¥É¤ò¾ÊÎ¬¤·¤Æ¡¢¥Ç¥£¥ì¥¯¥È¥êÌ¾¤Î¤ß¤ÎÆşÎÏ¤Ç°ÜÆ°
+setopt auto_cd
+
+# ¥Ó¡¼¥×²»¤òÌÄ¤é¤µ¤Ê¤¤¤è¤¦¤Ë¤¹¤ë
+setopt no_beep
+
+# bg¥×¥í¥»¥¹¤Î¾õÂÖÊÑ²½¤òÂ¨»ş¤ËÃÎ¤é¤»¤ë
+setopt notify
+
+# 8bitÊ¸»ú¤òÍ­¸ú¤Ë¤¹¤ë
+setopt print_eight_bit
+
+# ½ªÎ»¥¹¥Æ¡¼¥¿¥¹¤¬0°Ê³°¤Î¾ì¹ç¤Ë¥¹¥Æ¡¼¥¿¥¹¤òÉ½¼¨¤¹¤ë
+setopt print_exit_value
+
+# ¥Õ¥¡¥¤¥ëÌ¾¤ÎÅ¸³«¤Ç¥Ç¥£¥ì¥¯¥È¥ê¤Ë¥Ş¥Ã¥Á¤·¤¿¾ì¹ç ËöÈø¤Ë / ¤òÉÕ²Ã
+setopt mark_dirs
+
+# ¥³¥Ş¥ó¥É¤Î¥¹¥Ú¥ë¥Á¥§¥Ã¥¯¤ò¤¹¤ë
+setopt correct
+
+# ¥³¥Ş¥ó¥É¥é¥¤¥óÁ´¤Æ¤Î¥¹¥Ú¥ë¥Á¥§¥Ã¥¯¤ò¤¹¤ë
+setopt correct_all
+
+# ¾å½ñ¤­¥ê¥À¥¤¥ì¥¯¥È¤Î¶Ø»ß
+setopt no_clobber
+
+# sudo ¤Î¸å¤í¤Ç¥³¥Ş¥ó¥ÉÌ¾¤òÊä´°¤¹¤ë
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+# ps ¥³¥Ş¥ó¥É¤Î¥×¥í¥»¥¹Ì¾Êä´°
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+# ¥Ñ¥¹¤ÎºÇ¸å¤Î¥¹¥é¥Ã¥·¥å¤òºï½ü¤·¤Ê¤¤
+setopt noautoremoveslash
+
+# ³Æ¥³¥Ş¥ó¥É¤¬¼Â¹Ô¤µ¤ì¤ë¤È¤­¤Ë¥Ñ¥¹¤ò¥Ï¥Ã¥·¥å¤ËÆş¤ì¤ë
+setopt hash_cmds
+
+PROMPT='%F{cyan}%n@%m%f:%~# '
+
+# ¼«Æ°Êä´°¤òÍ­¸ú¤Ë¤¹¤ë
+autoload -Uz compinit ; compinit
+setopt auto_list
+setopt auto_menu
+zstyle ':completion:*:default' menu select=1
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+
+# Ã±¸ì¤ÎÆşÎÏÅÓÃæ¤Ç¤âTabÊä´°¤òÍ­¸ú²½
+setopt complete_in_word
+
+# ¥³¥Ş¥ó¥É¥ß¥¹¤ò½¤Àµ
+setopt correct
+
+# Êä´°¤ÎÁªÂò¤ò³Ú¤Ë¤¹¤ë
 zstyle ':completion:*' menu select
-setopt completealiases
 
-#å±¥æ­´ã«åŒã˜è¡Œã®é‡è¤‡ã‚’è¨±å¯ã—ãªã„
-setopt HIST_IGNORE_DUPS
+# Êä´°¸õÊä¤ò¤Ç¤­¤ë¤À¤±µÍ¤á¤ÆÉ½¼¨¤¹¤ë
+setopt list_packed
 
-#å±¥æ­´æ¤œç´¢ã‚­ãƒ¼
-[[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
-[[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
+# Êä´°¸õÊä¤Ë¥Õ¥¡¥¤¥ë¤Î¼ïÎà¤âÉ½¼¨¤¹¤ë
+setopt list_types
 
-# themeè¨­å®š
-prompt walters
+# ¿§¤ÎÀßÄê
+export LSCOLORS=Exfxcxdxbxegedabagacad
 
-export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
-export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
-zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
+# Êä´°»ş¤Î¿§ÀßÄê
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-#lsè¨­å®š
-case "${OSTYPE}" in
-freebsd*|darwin*)
-  alias ls="ls -GF"
-  ;;
-linux*)
-  alias ls="ls -F --color"
-  ;;
-esac
+# ¥­¥ã¥Ã¥·¥å¤ÎÍøÍÑ¤Ë¤è¤ëÊä´°¤Î¹âÂ®²½
+zstyle ':completion::complete:*' use-cache true
 
-alias la='ls -a'
-alias ll='ls -l'
-alias lla='ls -al'
+# Êä´°¸õÊä¤Ë¿§¤Ä¤±¤ë
+autoload -U colors ; colors ; zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-
-#ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚¹ã‚¿ãƒƒã‚¯è¨­å®š
-DIRSTACKFILE="$HOME/.cache/zsh/dirs"
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1]
-fi
-chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
-
-DIRSTACKSIZE=20
-
-setopt autopushd pushdsilent pushdtohome auto_cd auto_pushd pushd_ignore_dups
-
-
-## Remove duplicate entries
-setopt pushdignoredups
-
-## This reverts the +/- operators.
-setopt pushdminus
-
-#helpã‚³ãƒãƒ³ãƒ‰è¨­å®š
-autoload -U run-help
-autoload run-help-git
-autoload run-help-svn
-autoload run-help-svk
-unalias run-help
-alias help=run-help
-
-#ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-#ã‚³ãƒãƒ³ãƒ‰è¨­å®š
-# Ctrl+Dã§ãƒ­ã‚°ã‚¢ã‚¦ãƒˆã—ã¦ã—ã¾ã†ã“ã¨ã‚’é˜²ã
-setopt IGNOREEOF
-
-#delete-key
-bindkey "^[[3~" delete-char
-
-# æ—¥æœ¬èªã‚’ä½¿ç”¨
-export LANG=ja_JP.UTF-8
-
-# ãƒ‘ã‚¹ã‚’è¿½åŠ ã—ãŸã„å ´åˆ
-export PATH="$HOME/nand2tetris/tools/:$PATH"
-export PATH="$HOME/application/iron-linux-64/:$PATH"
-
-#aliasè¨­å®š
-alias la='ls -a'
-
-RPROMPT='%B%F{green}[%d]%f%b'
-
-
-#ãƒ“ãƒ¼ãƒ—éŸ³ã‚’æ¶ˆã™
-setopt nobeep
-
-# è£œå®Œã§å¤§æ–‡å­—ã«ã‚‚ãƒãƒƒãƒ
+# ÂçÊ¸»ú¡¦¾®Ê¸»ú¤ò¶èÊÌ¤·¤Ê¤¤(ÂçÊ¸»ú¤òÆşÎÏ¤·¤¿¾ì¹ç¤Ï¶èÊÌ¤¹¤ë)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# opam configuration
-test -r /home/sagoj0_/.opam/opam-init/init.zsh && . /home/sagoj0_/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# man¤ÎÊä´°¤ò¥»¥¯¥·¥ç¥óÈÖ¹æÊÌ¤ËÉ½¼¨¤µ¤»¤ë
+zstyle ':completion:*:manuals' separate-sections true
 
-#. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# --prefix=/usr ¤Ê¤É¤Î = °Ê¹ß¤Ç¤âÊä´°
+setopt magic_equal_subst
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+HISTFILE=$HOME/.zsh-history
+HISTSIZE=100000
+SAVEHIST=1000000
+
+# ¥Ò¥¹¥È¥ê¡¼¤Ë½ÅÊ£¤òÉ½¼¨¤·¤Ê¤¤
+setopt histignorealldups
+
+# Â¾¤Î¥¿¡¼¥ß¥Ê¥ë¤È¥Ò¥¹¥È¥ê¡¼¤ò¶¦Í­
+setopt share_history
+
+# ¤¹¤Ç¤Ëhistory¤Ë¤¢¤ë¥³¥Ş¥ó¥É¤Ï»Ä¤µ¤Ê¤¤
+setopt hist_ignore_all_dups
+
+# history¤ËÆüÉÕ¤òÉ½¼¨
+alias h='fc -lt '%F %T' 1'
+
+# ¥Ò¥¹¥È¥ê¤ËÊİÂ¸¤¹¤ë¤È¤­¤ËÍ¾Ê¬¤Ê¥¹¥Ú¡¼¥¹¤òºï½ü¤¹¤ë
+setopt hist_reduce_blanks
+
+# ÍúÎò¤ò¤¹¤°¤ËÄÉ²Ã¤¹¤ë
+setopt inc_append_history
+
+# ¥Ò¥¹¥È¥ê¤ò¸Æ¤Ó½Ğ¤·¤Æ¤«¤é¼Â¹Ô¤¹¤ë´Ö¤Ë°ìÃ¶ÊÔ½¸¤Ç¤­¤ë¾õÂÖ¤Ë¤Ê¤ë
+setopt hist_verify
+
+
+alias ls='exa'
+alias la='exa -a'
+alias ll='exa -ahl --git'
+alias lt='exa -T --git-ignore'
+export PATH=~/bin/:$PATH
+alias atcoder='cargo atcoder'

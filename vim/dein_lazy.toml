@@ -75,4 +75,5 @@ hook_source = '''
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 build = './install.sh'
-on_source = ['deoplete.nvim']
+#on_source = ['deoplete.nvim']
+
