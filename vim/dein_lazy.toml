@@ -6,6 +6,13 @@ repo = 'cohama/lexima.vim'
 on_i=1
 
 
+[[plugins]]
+repo = 'dag/vim2hs'
+on_ft = 'haskell'
+hook_add = '''
+  let g:haskel_conceal_wide = 1
+'''
+
 # neosnippet----------------
 
 [[plugins]]

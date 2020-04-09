@@ -1,0 +1,2 @@
+set vicmd=nvim
+set statusline="  %t%= %A %10u:%-7g %15E %20d  "

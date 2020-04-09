@@ -35,6 +35,7 @@ augroup TransparentBG
   autocmd Colorscheme * highlight EndOfBuffer ctermbg=none "ファイル終わり以降の空白
 augroup END
 
+
 "最後のカーソル位置の復元
 if has("autocmd")
     autocmd BufReadPost *
@@ -54,6 +55,11 @@ command -nargs=0 Indent call Indent()
 "set visualbell
 
 inoremap <silent> jj <ESC>
+nnoremap <silent> <C-l> $
+nnoremap <silent> <C-h> ^
+nnoremap <silent> <C-k> kkk
+nnoremap <silent> <C-j> jjj
+nnoremap <silent> s "_s
 
 
 if has('nvim')
