@@ -5,6 +5,9 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'cohama/lexima.vim'
 on_i=1
 
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
 
 [[plugins]]
 repo = 'dag/vim2hs'
@@ -82,5 +85,5 @@ hook_source = '''
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 build = './install.sh'
-#on_source = ['deoplete.nvim']
+on_source = ['deoplete.nvim']
 

@@ -85,9 +85,9 @@ hook_add = '''
 
   " 言語ごとに設定する
   let g:LanguageClient_serverCommands = {
-      \ 'cpp': ['clangd'],
+      \ 'cpp': ['clangd --compile_commands_dir=\"$HOME/.config/nvim/compile_flags.txt\"'],
       \ 'c': ['clangd'],
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+      \ 'rust': ['rls'],
       \ 'python':['pyls'],
       \}
 
