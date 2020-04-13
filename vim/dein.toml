@@ -9,6 +9,9 @@ repo = 'vim-jp/vimdoc-ja'
 #repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
@@ -81,27 +84,7 @@ rev = 'next'
 build = 'bash install.sh'
 on_ft='snippet'
 hook_add = '''
-  set hidden
-
-  " 言語ごとに設定する
-  let g:LanguageClient_serverCommands = {
-      \ 'cpp': ['clangd --compile_commands_dir=\"$HOME/.config/nvim/compile_flags.txt\"'],
-      \ 'c': ['clangd'],
-      \ 'rust': ['rls'],
-      \ 'python':['pyls'],
-      \}
-
-  augroup LanguageClient_config
-      autocmd!
-      autocmd User LanguageClientStarted setlocal signcolumn=yes
-      autocmd User LanguageClientStopped setlocal signcolumn=auto
-  augroup END
-
-  let g:LanguageClient_autoStart = 1
-  nnoremap <Leader>lh :call LanguageClient_textDocument_hover()<CR>
-  nnoremap <Leader>ld :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <Leader>lr :call LanguageClient_textDocument_rename()<CR>
-  nnoremap <Leader>lf :call LanguageClient_textDocument_formatting()<CR>
+source ~/.config/nvim/language_clientrc.vim
 '''
 
 

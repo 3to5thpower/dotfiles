@@ -1,8 +1,8 @@
 set number
 set ruler
-set wildmenu
-set list
-set listchars=tab:>-,trail:*
+set wildmenu 
+set list 
+set listchars=tab:>-,trail:* 
 set smartindent
 set autoindent
 set mouse=a
@@ -55,11 +55,17 @@ command -nargs=0 Indent call Indent()
 "set visualbell
 
 inoremap <silent> jj <ESC>
-nnoremap <silent> <C-l> $
-nnoremap <silent> <C-h> ^
-nnoremap <silent> <C-k> kkk
-nnoremap <silent> <C-j> jjj
+nnoremap <silent> <S-l> $
+nnoremap <silent> <S-h> ^
+nnoremap <silent> <S-k> {
+nnoremap <silent> <S-j> }
+nnoremap <silent> <C-h> B
+nnoremap <silent> <C-l> W
+nnoremap <silent> <C-k> 4k
+nnoremap <silent> <C-j> 4j
 nnoremap <silent> s "_s
+nnoremap <silent> <C-Right> :bnext<CR>
+nnoremap <silent> <C-Left> :bprev<CR>
 
 
 if has('nvim')
