@@ -38,7 +38,6 @@ hook_source = '''
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 on_event = 'InsertEnter'
-on_i = 1
 hook_source = '''
   " deoplete options
   let g:deoplete#enable_at_startup = 1
@@ -84,3 +83,6 @@ repo = 'tbodt/deoplete-tabnine'
 build = './install.sh'
 on_source = ['deoplete.nvim']
 
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+on_event = 'InsertEnter'

@@ -9,6 +9,9 @@ set mouse=a
 set nobackup
 set clipboard=unnamedplus
 set noswapfile
+set splitright
+set splitbelow
+
 
 set expandtab
 set tabstop=4
@@ -66,6 +69,7 @@ nnoremap <silent> <C-j> 4j
 nnoremap <silent> s "_s
 nnoremap <silent> <C-Right> :bnext<CR>
 nnoremap <silent> <C-Left> :bprev<CR>
+tnoremap <silent> <C-q> <C-\><C-n>
 
 
 if has('nvim')
