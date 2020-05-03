@@ -70,6 +70,8 @@ nnoremap <silent> s "_s
 nnoremap <silent> <C-Right> :bnext<CR>
 nnoremap <silent> <C-Left> :bprev<CR>
 tnoremap <silent> <C-q> <C-\><C-n>
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 
 if has('nvim')
