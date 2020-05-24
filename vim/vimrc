@@ -12,7 +12,6 @@ set noswapfile
 set splitright
 set splitbelow
 
-
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -86,8 +85,9 @@ augroup BinaryXXD
   autocmd BufWritePost * set nomod | endif
 augroup END
 
-
-
+if has('vim')
+  set ttymouse=sgr
+endif
 
 if has('nvim')
   " Neovim specific commands------------------------------------------------
@@ -98,11 +98,11 @@ if has('nvim')
   endif
 
   " Required:
-  set runtimepath+=/home/sagoj0_/.cache/dein/repos/github.com/Shougo/dein.vim
+  set runtimepath+=/home/sagojo/.cache/dein/repos/github.com/Shougo/dein.vim
 
   " Required:
-  if dein#load_state('/home/sagoj0_/.cache/dein')
-    call dein#begin('/home/sagoj0_/.cache/dein')
+  if dein#load_state('/home/sagojo/.cache/dein')
+    call dein#begin('/home/sagojo/.cache/dein')
 
     " Let dein manage dein
     " Required:
