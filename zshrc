@@ -28,7 +28,4 @@ alias ls="exa"
 alias la="exa -a"
 alias ll="exa -al"
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 xmodmap ~/dotfiles/Xmodmap

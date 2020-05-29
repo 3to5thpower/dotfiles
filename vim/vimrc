@@ -56,7 +56,7 @@ command -nargs=0 Indent call Indent()
 
 "set visualbell
 
-inoremap <silent> jj <ESC>
+inoremap <silent> jk <ESC>
 nnoremap <silent> <S-l> $
 nnoremap <silent> <S-h> ^
 nnoremap <silent> <S-k> {
@@ -98,11 +98,11 @@ if has('nvim')
   endif
 
   " Required:
-  set runtimepath+=/home/sagojo/.cache/dein/repos/github.com/Shougo/dein.vim
+  set runtimepath+=/home/sagoj0_/.cache/dein/repos/github.com/Shougo/dein.vim
 
   " Required:
-  if dein#load_state('/home/sagojo/.cache/dein')
-    call dein#begin('/home/sagojo/.cache/dein')
+  if dein#load_state('/home/sagoj0_/.cache/dein')
+    call dein#begin('/home/sagoj0_/.cache/dein')
 
     " Let dein manage dein
     " Required:
