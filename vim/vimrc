@@ -7,7 +7,8 @@ set smartindent
 set autoindent
 set mouse=a
 set nobackup
-set clipboard=unnamedplus
+set clipboard&
+set clipboard^=unnamedplus
 set noswapfile
 set splitright
 set splitbelow

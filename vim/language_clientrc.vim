@@ -6,6 +6,7 @@ let g:LanguageClient_serverCommands = {
             \ 'c': ['clangd'],
             \ 'rust': ['rls'],
             \ 'python':['pyls'],
+            \ 'go':['gopls'],
             \ }
 
 augroup LanguageClient_config

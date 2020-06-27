@@ -1,0 +1,70 @@
+snippet binary_search
+alias binary_search upper_bound lower_bound
+  fn binary_search<T: Ord>(v: &Vec<T>, key:T) -> usize {
+      fn lower_bound<T: Ord>(v: &Vec<T>, index: usize, key: &T) -> bool {
+          v[index] >= *key
+      }
+      fn upper_bound<T: Ord>(v: &Vec<T>, index: usize, key: &T) -> bool {
+          v[index] > *key
+      }
+ 
+      let (mut left, mut right) = (-1, v.len() as isize);
+ 
+      while right - left > 1 {
+          let mid = left + (right - left) / 2;
+          if upper_bound(v, mid as usize, &key) {
+              right = mid;
+          } else {
+              left = mid;
+          }
+      }
+      // right is minimum index of satisfying condition
+      right as usize
+  }
+
+snippet dijkstra
+abbr diku
+  struct Dijkstra {
+    dist: Vec<usize>,
+    start: usize,
+  }
+  impl Dijkstra {
+      fn new(graph: &Vec<Vec<(usize, usize)>>, start: usize) -> Self {
+          let mut d = Dijkstra {
+              dist: (0..graph.len()).map(|_|std::usize::MAX).collect(),
+              start: start,
+          };
+          d.calc(graph);
+          d
+      }
+
+      fn calc(&mut self, graph: &Vec<Vec<(usize, usize)>>) {
+          //現在のnodeからの探索候補のヒープ
+          let mut heap = std::collections::BinaryHeap::new();
+          //初期化
+          self.dist[self.start] = 0;
+          heap.push((0, self.start));
+        
+          //未探索のnodeがなくなるまで隣接nodeへの最短距離を計算
+          while let Some((cost, node)) = heap.pop() {
+    
+              if cost > self.dist[node] {
+                  continue;
+              }
+              //各辺について隣接先の重みを計算して更新
+              for edge in &graph[node] {
+                  let next_cost = cost + edge.0;
+                  let next_node = edge.1;
+                  if next_cost < self.dist[next_node] {
+                      heap.push((next_cost, next_node));
+                      self.dist[next_node] = next_cost;
+                  }
+              }
+          }
+      }
+    
+      fn distance(&self, i: usize) -> usize {
+          self.dist[i]
+      }
+  }
+

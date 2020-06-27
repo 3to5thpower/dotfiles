@@ -10,6 +10,10 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
 repo = 'dag/vim2hs'
 on_ft = 'haskell'
 hook_add = '''
@@ -81,7 +85,7 @@ hook_source = '''
 [[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 build = './install.sh'
-#on_source = ['deoplete.nvim']
+on_source = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'Shougo/neco-syntax'

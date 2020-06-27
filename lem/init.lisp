@@ -32,7 +32,7 @@
 (load #P"~/dotfiles/lem/modes/10-auto-save.lisp")
 
 (lem-vi-mode:vi-mode)
-(define-key lem-vi-mode:*insert-keymap* "j j" 'lem-vi-mode.commands:vi-end-insert)
+(define-key lem-vi-mode:*insert-keymap* "j k" 'lem-vi-mode.commands:vi-end-insert)
 
 (defun foo (x)
   (mapcar #'(lambda (x) (bar x))

@@ -23,9 +23,7 @@ function get_battery() {
 }
 
 function online() {
-  [[ $(cat /sys/class/power_supply/ADP1/online) -eq 1 ]] \
-    && return 0
-  return 1
+  [[ $(acpi -a) = "Adapter 0: on-line" ]] && return 0 || return 1
 }
 
 function main() {

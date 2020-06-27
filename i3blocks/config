@@ -27,23 +27,23 @@ interval=1
 label=☀ 
 command=xbacklight -get | xargs printf '%.0f%%\n'
 color=#8fa1b3
-interval=once
+interval=1
 signal=2
 
 [volume]
 label= 
 command=~/.config/i3blocks/volume.sh
-interval=once
+interval=1
 signal=1
 
 [date]
 label=
-command=date +'%m/%d(%a) %H:%M'
+command=date +'%m/%d(%a) %H:%M:%S'
 color=#8fa1b3
 interval=1
 
 [battery]
-command=~/.config/i3blocks/battery.sh
+#command=~/.config/i3blocks/battery.sh
 format=json
 interval=persist
 
