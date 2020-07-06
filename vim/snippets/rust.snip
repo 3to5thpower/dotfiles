@@ -22,6 +22,22 @@ alias binary_search upper_bound lower_bound
       right as usize
   }
 
+snippet dfs
+abbr dfs
+  fn dfs(n:usize, A: &mut Vec<usize>, res: &mut usize) {
+    if A.len() > n {
+        unimplemented!();
+        return
+    }
+    let e = A.last().unwrap();
+    let m = unimplemented!();
+    for i in *e..=m {
+        A.push(i);
+        dfs(n, A, res);
+        A.pop();
+    }
+  }
+
 snippet dijkstra
 abbr diku
   struct Dijkstra {

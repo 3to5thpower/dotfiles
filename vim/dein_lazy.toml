@@ -15,10 +15,13 @@ on_ft = 'go'
 
 [[plugins]]
 repo = 'dag/vim2hs'
-on_ft = 'haskell'
 hook_add = '''
   let g:haskel_conceal_wide = 1
 '''
+
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
+on_ft = 'haskell'
 
 # neosnippet----------------
 
