@@ -1,77 +1,66 @@
 
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Customize to your needs...
-autoload -Uz promptinit
-promptinit
-prompt agnoster
-
 autoload -Uz add-zsh-hook
-autoload -U colors && colors
 
 autoload -U compinit
 compinit -u
 
-export PATH="$HOME/.cargo/bin/":$PATH
-export PATH="$HOME/.roswell/bin/":$PATH
+autoload -Uz colors 
+colors
 
-alias acc="cargo atcoder"
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion::complete:*' use-cache true
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+setopt list_packed
+setopt list_types
+setopt auto_cd
+setopt share_history
+setopt hist_ignore_all_dups
+setopt correct
+setopt complete_in_word
+setopt notify
+
 alias ls="exa"
-alias la="exa -a"
-alias ll="exa -al"
-alias docker="sudo docker"
+alias la="ls -a"
+alias ll="exa -ahl --git"
+alias lt="exa -T --git-ignore"
 
-xmodmap ~/dotfiles/Xmodmap
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-#trackpoint setting
-#test `xinput list-props 14 | grep 318 | awk '{print $8}'` -eq 0; 
-xinput set-prop 14 318 -0.2
-xinput set-button-map "TPPS/2 Elan TrackPoint" 1 0 3 4 5 6 7
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-export GOPATH=$HOME/go
-export PATH="$GOPATH/bin/":$PATH
-export PATH="$HOME/.local/bin/":$PATH
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
 
-# fzf's config
+# 補完
+zinit light zsh-users/zsh-autosuggestions
 
-function cdworktree() {
-    # カレントディレクトリがGitリポジトリ上かどうか
-    git rev-parse &>/dev/null
-    if [ $? -ne 0 ]; then
-        echo fatal: Not a git repository.
-        return
-    fi
+# # シンタックスハイライト
+zinit light zdharma/fast-syntax-highlighting
 
-    local selectedWorkTreeDir=`git worktree list | fzf | awk '{print $1}'`
+# Ctrl+r でコマンド履歴を検索
+zinit light zdharma/history-search-multi-word
 
-    if [ "$selectedWorkTreeDir" = "" ]; then
-        # Ctrl-C.
-        return
-    fi
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+### End of Zinit's installer chunk
 
-    cd ${selectedWorkTreeDir}
-}
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-function fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
+export PATH=$PATH:"$HOME/.cargo/bin"
 
