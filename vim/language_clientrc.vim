@@ -2,7 +2,7 @@ set hidden
 
 " 言語ごとに設定する
 let g:LanguageClient_serverCommands = {
-            \ 'cpp': ['~/.config/nvim/clangd_c++17.sh'],
+            \ 'cpp': ['~/dotfiles/vim/clangd_c++17.sh'],
             \ 'c': ['clangd'],
             \ 'rust': ['rls'],
             \ 'python':['pyls'],

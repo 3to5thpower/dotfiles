@@ -106,8 +106,9 @@ if has('nvim')
     " Required:
     "call dein#add('/home/sagoj0_/.cache/dein/repos/github.com/Shougo/dein.vim')
     
-    let s:toml_file = '~/.config/nvim/dein.toml'
-    let s:toml_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
+    "let s:toml_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
+    let s:toml_file = '~/dotfiles/vim/dein.toml'
+    let s:toml_lazy_file = '~/dotfiles/vim/dein_lazy.toml'
 
     call dein#load_toml(s:toml_file, {'lazy': 0})
     call dein#load_toml(s:toml_lazy_file, {'lazy': 1})

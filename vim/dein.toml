@@ -84,7 +84,7 @@ rev = 'next'
 build = 'bash install.sh'
 on_ft='snippet'
 hook_add = '''
-source ~/.config/nvim/language_clientrc.vim
+source ~/dotfiles/vim/language_clientrc.vim
 '''
 
 
