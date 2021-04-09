@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 on_i=1
 
@@ -93,3 +90,4 @@ on_source = ['deoplete.nvim']
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 on_event = 'InsertEnter'
+
