@@ -57,6 +57,7 @@ command -nargs=0 Indent call Indent()
 
 "set visualbell
 
+let mapleader = "\<Space>"
 inoremap <silent> jk <ESC>
 nnoremap <silent> <S-l> $
 nnoremap <silent> <S-h> ^
@@ -89,6 +90,9 @@ augroup END
 
 if has('nvim')
   " Neovim specific commands------------------------------------------------
+  let s:dein_path = expand('~/.cache/dein')
+  let s:dein_repo_path = s:dein_path . '/repos/github.com/Shougo/dein.vim'
+  let s:toml_path = expand('~/dotfiles/vim')
 
   "dein Scripts-----------------------------
   if &compatible
@@ -98,31 +102,26 @@ if has('nvim')
   " Required:
   set runtimepath+=/home/sagoj0_/.cache/dein/repos/github.com/Shougo/dein.vim
 
-  " Required:
-  if dein#load_state('/home/sagoj0_/.cache/dein')
-    call dein#begin('/home/sagoj0_/.cache/dein')
-
-    let s:toml_file = '~/dotfiles/vim/dein.toml'
-    let s:toml_lazy_file = '~/dotfiles/vim/dein_lazy.toml'
-
-    call dein#load_toml(s:toml_file, {'lazy': 0})
-    call dein#load_toml(s:toml_lazy_file, {'lazy': 1})
+  if dein#load_state(s:dein_path)
+    call dein#begin(s:dein_path)
+    call dein#load_toml(s:toml_path . '/dein.toml', {'lazy': 0})
+    call dein#load_toml(s:toml_path . '/dein_lazy.toml', {'lazy': 1})
+    call dein#load_toml(s:toml_path . '/ddc.toml', {'lazy': 1})
     call dein#end()
     call dein#save_state()
   endif
 
-  " Required:
   filetype plugin indent on
   syntax enable
 
-  " If you want to install not installed plugins on startup.
   if dein#check_install()
     call dein#install()
   endif
 
   "End dein Scripts-------------------------
+  set termguicolors
   set background=dark
   syntax on
-  let g:lightline = {'colorscheme': 'candid' }
+  colorscheme iceberg
 endif
 

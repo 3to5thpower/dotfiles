@@ -6,7 +6,7 @@ repo = 'Shougo/dein.vim'
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
@@ -56,29 +56,32 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 '''
 
-
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'flrnprz/candid.vim'
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 hook_add = '''
   let g:rustfmt_autosave = 1
 '''
+
 [[plugins]]
-repo = 'preservim/nerdtree'
+repo = 'Shougo/defx.nvim'
 hook_add = '''
-  map <C-e> :NERDTreeToggle<CR>
-  let g:NERDTreeDirArrowExpandable = '>'
-  let g:NERDTreeDirArrowCollapsible = 'v'
-'''
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-on_ft='snippet'
-hook_add = '''
-source ~/dotfiles/vim/language_clientrc.vim
+source ~/dotfiles/vim/plugins/defx.vim
+autocmd VimEnter * execute 'Defx'
+nnoremap <silent> <Leader>f :<C-u> Defx <CR>
 '''
 
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
 
