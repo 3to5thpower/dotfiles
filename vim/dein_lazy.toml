@@ -1,95 +1,40 @@
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
-on_i=1
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
 
 [[plugins]]
-repo = 'dag/vim2hs'
-hook_add = '''
-  let g:haskel_conceal_wide = 1
-'''
-
-[[plugins]]
-repo = 'itchyny/vim-haskell-indent'
-on_ft = 'haskell'
-
-# neosnippet----------------
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-depends = 'context_filetype.vim'
+repo = 'neovim/nvim-lspconfig'
+on_event = 'BufRead'
 hook_source = '''
-  let g:neosnippet#snippets_directory = '~/dotfiles/vim/snippets'
-  imap <C-y> <Plug>(neosnippet_expand_or_jump)
-  smap <C-y> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-y> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-      set conceallevel=2 concealcursor=niv
-  endif
+  lua require('lsp_rc')
 '''
 
-
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_event = 'InsertEnter'
+repo = 'kabouzeid/nvim-lspinstall'
+on_source = 'nvim-lspconfig'
 hook_source = '''
-  " deoplete options
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
-  let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_refresh_always = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  let g:deoplete#max_list = 10000
-  " <TAB>: completion.
-    inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ deoplete#manual_complete()
-    function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('')[col - 1]  =~ '\s'
-    endfunction
-    " <S-TAB>: completion back.
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-    " <C-e>: popup cancel
-    inoremap <expr><C-e>       deoplete#cancel_popup()
-    call deoplete#custom#source('_', 'matchers', ['matcher_head'])
-    call deoplete#custom#source('_', 'converters', [
-          \ 'converter_remove_paren',
-          \ 'converter_remove_overlap',
-          \ 'matcher_length',
-          \ 'converter_truncate_abbr',
-          \ 'converter_truncate_menu',
-          \ 'converter_auto_delimiter',
-          \ ])
-    call deoplete#custom#option('keyword_patterns', {
-          \ '_': '[a-zA-Z_]\k*\(?',
-          \ 'tex': '[^\w|\s][a-zA-Z_]\w*',
-          \ })
-    call deoplete#custom#option('camel_case', v:true)
+  lua require'lspinstall'.setup()
 '''
 
 [[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-build = './install.sh'
-on_source = ['deoplete.nvim']
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-on_event = 'InsertEnter'
+repo = 'glepnir/lspsaga.nvim'
+on_source='nvim-lspconfig'
+hook_source = '''
+nnoremap <silent> <leader>f :Lspsaga lsp_finder<CR>
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
+nnoremap <silent><leader>cd :Lspsaga hover_doc<CR>
+nnoremap <silent> <leader>sig :Lspsaga signature_help<CR>
+nnoremap <silent> <leader>rename :Lspsaga rename<CR>
+nnoremap <silent> <leader>d :Lspsaga preview_definition<CR>
+nnoremap <silent> <leader>e :Lspsaga show_line_diagnostics<CR>
+nnoremap <silent> [e :Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
+highlight LspDiagnosticsSignError ctermbg=9 ctermfg=15
+highlight LspDiagnosticsSignHint ctermbg=142 ctermfg=15
+'''
