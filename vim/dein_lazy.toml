@@ -38,3 +38,4 @@ nnoremap <silent> ]e :Lspsaga diagnostic_jump_prev<CR>
 highlight LspDiagnosticsSignError ctermbg=9 ctermfg=15
 highlight LspDiagnosticsSignHint ctermbg=142 ctermfg=15
 '''
+
