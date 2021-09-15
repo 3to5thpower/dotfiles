@@ -56,9 +56,9 @@ call ddc#custom#patch_filetype(
     \ 'sources',
     \ ['nvimlsp', 'tabnine','around','dictionary', 'buffer', 'file'])
 
-" inline suggestion
-inoremap <expr><C-t>       ddc#insert_candidate(0)
-call ddc#custom#patch_global('completionMode', 'inline')
+" fish like inline suggestion
+"inoremap <expr><C-t>       ddc#insert_candidate(0)
+"call ddc#custom#patch_global('completionMode', 'inline')
 
 call ddc#enable()
 
