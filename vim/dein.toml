@@ -85,4 +85,18 @@ repo = 'kristijanhusak/defx-git'
 [[plugins]]
 repo = 'vim-denops/denops.vim'
 
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+""let g:EasyMotion_do_mapping = 0 " disable default key map
+let g:EasyMotion_smartcase = 1
+map <Leader>/ <Plug>(easymotion-overwin-f)
+map <Leader>/ <Plug>(easymotion-overwin-f2)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+'''
+
+
+
+
 
