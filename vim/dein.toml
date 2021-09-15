@@ -78,6 +78,9 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+hook_add = '''
+let g:defx_icons_column_length = 2
+'''
 
 [[plugins]]
 repo = 'kristijanhusak/defx-git'

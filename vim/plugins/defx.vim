@@ -74,7 +74,7 @@ call defx#custom#option('_', {
       \ 'buffer_name': 'exlorer',
       \ 'toggle': 1,
       \ 'resume': 1,
-      \ 'columns' : 'indent:git:icons:filename:mark',
+      \ 'columns' : 'indent:icons:git:filename',
       \ })
 
 call defx#custom#column('git', 'indicators', {

@@ -62,9 +62,10 @@ call ddc#custom#patch_global('sourceOptions', {
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
 on_event = 'InsertEnter'
+depends = ['vim-vsnip-integ']
+
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
-on_source = 'ddc.vim'
 
 
 [[plugins]]
