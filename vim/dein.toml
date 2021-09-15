@@ -70,7 +70,7 @@ repo = 'Shougo/defx.nvim'
 hook_add = '''
 source ~/dotfiles/vim/plugins/defx.vim
 autocmd VimEnter * execute 'Defx'
-nnoremap <silent> <Leader>f :<C-u> Defx <CR>
+nnoremap <silent> <Leader>q :<C-u> Defx <CR>
 '''
 
 [[plugins]]
@@ -84,4 +84,5 @@ repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+
 

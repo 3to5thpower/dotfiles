@@ -6,14 +6,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 call ddc#custom#patch_global('sources', ['nvimlsp', 'buffer', 'around', 'vsnip', 'file', 'dictionary', 'zsh'])
 call ddc#custom#patch_global('sourceOptions', {
-      \ '_': {
+        \ '_': {
         \   'matchers': ['matcher_fuzzy'],
         \   'sorters': ['sorter_rank'],
         \   'converters': ['converter_remove_overlap', 'converter_truncate'],
         \ },
         \ 'around': {'mark': 'around'},
         \ 'dictionary': {'matchers': ['matcher_editdistance'], 'sorters': [], 'maxCandidates': 6, 'mark': 'D', 'minAutoCompleteLength': 3},
-        \ 'eskk': {'mark': 'eskk', 'matchers': [], 'sorters': []},
         \ 'necovim': {'mark': 'vim'},
         \ 'nvimlsp': {'mark': 'lsp', 'forceCompletionPattern': "\\.|:\\s*|->"},
         \ 'buffer': {'mark': 'buffer'},
@@ -31,9 +30,6 @@ call ddc#custom#patch_global('filterParams', {
       \ 'matcher_fuzzy': {'camelcase': v:true},
       \ 'converter_truncate': {'maxAbbrWidth': 60, 'maxInfo': 500, 'ellipsis': '...'},
       \ })
-call ddc#custom#patch_global('specialBufferCompletionFiletypes', [
-      \ 'gina-commit',
-      \ ])
 
 call ddc#custom#patch_filetype(['vim', 'toml'], {
       \ 'sources': ['necovim', 'buffer', 'around', 'vsnip', 'dictionary'],
@@ -45,7 +41,6 @@ call ddc#custom#patch_filetype(['zsh'], 'sourceOptions', {
       \ 'zsh': {'mark': 'Z'},
       \ })
 
-call ddc#custom#patch_global('completionMode', 'manual')
 call ddc#custom#patch_global({
     \ 'keywordPattern': '[a-zA-Z_]\w*',
     \ 'smartCase': v:true,
@@ -54,12 +49,16 @@ call ddc#custom#patch_global({
 call ddc#custom#patch_filetype(
     \ ['c', 'cpp'],
     \ 'sources',
-    \ ['nvimlsp', 'around','dictionary', 'buffer', 'file'])
+    \ ['nvimlsp', 'tabnine','around','dictionary', 'buffer', 'file'])
 
 call ddc#custom#patch_filetype(
     \ ['rust'],
     \ 'sources',
-    \ ['nvimlsp', 'around','dictionary', 'buffer', 'file'])
+    \ ['nvimlsp', 'tabnine','around','dictionary', 'buffer', 'file'])
+
+" inline suggestion
+inoremap <expr><C-t>       ddc#insert_candidate(0)
+call ddc#custom#patch_global('completionMode', 'inline')
 
 call ddc#enable()
 

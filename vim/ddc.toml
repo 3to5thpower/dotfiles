@@ -46,8 +46,22 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'hrsh7th/vim-vsnip'
+repo = 'LumaKernel/ddc-tabnine'
 on_source = 'ddc.vim'
+hook_source = '''
+call ddc#custom#patch_global('sources', ['tabnine'])
+call ddc#custom#patch_global('sourceOptions', {
+    \ 'tabnine': {
+    \   'mark': 'TN',
+    \   'maxCandidates': 5,
+    \   'isVolatile': v:true,
+    \ }})
+'''
+
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_event = 'InsertEnter'
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 on_source = 'ddc.vim'
