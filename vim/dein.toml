@@ -95,3 +95,7 @@ map <Leader>/ <Plug>(easymotion-overwin-f2)
 map <Leader><Leader>j <Plug>(easymotion-j)
 map <Leader><Leader>k <Plug>(easymotion-k)
 '''
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
