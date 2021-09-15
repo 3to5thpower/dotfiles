@@ -113,3 +113,5 @@ endfunction
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 '''
 
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
