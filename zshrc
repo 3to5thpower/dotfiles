@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #
 # ~/.zshrc
 #
@@ -23,12 +30,6 @@ compinit -u
 #-- Archive settings --#
 export ZIPINFOOPT=-OCP932
 export UNZIPOPT=-OCP932
-
-
-#-- Like fish prompt --#
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 #-- Key --#
@@ -99,26 +100,6 @@ colors
 [[ -d ~/.bin ]] && export PATH="~/.bin:${PATH}"
 
 
-#-- PROMPT --#
-if [[ ${TERM} = "linux" ]]; then
-    PROMPT='%B%F{red}%(?..%? )%f%b%B%F{red}%n%f%b@%m %B%40<..<%~%<< %b%# '
-else
-    function powerline_precmd() {
-        PS1="$(powerline-go -error $? -shell zsh)"
-    }
-
-    function install_powerline_precmd() {
-        for s in "${precmd_functions[@]}"; do
-            if [ "$s" = "powerline_precmd" ]; then
-                return
-            fi
-        done
-        precmd_functions+=(powerline_precmd)
-    }
-
-    install_powerline_precmd
-fi
-
 # Customize to your needs...
 autoload -Uz add-zsh-hook
 
@@ -159,16 +140,18 @@ zinit light-mode for \
     zinit-zsh/z-a-patch-dl \
     zinit-zsh/z-a-bin-gem-node
 
-# 補完
 zinit light zsh-users/zsh-autosuggestions
-
-# # シンタックスハイライト
+zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma/fast-syntax-highlighting
-
-# Ctrl+r でコマンド履歴を検索
 zinit light zdharma/history-search-multi-word
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 ### End of Zinit's installer chunk
 
 export PATH=$PATH:"$HOME/.cargo/bin"
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
